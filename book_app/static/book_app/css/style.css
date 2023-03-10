@@ -1,0 +1,15 @@
+.main{
+    background-color:rgba(195, 211, 176, 0.523);
+}
+
+li{
+    font-size: 18px;
+    font-family: Palatino, URW Palladio L, serif;
+}
+.main_list{
+    margin-top:12px;
+}
+.add_info{
+    display: inline-block;
+    margin-left: 150px;
+}

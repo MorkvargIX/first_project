@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Автор {% endblock %}
+{% block css_addition %}
+<link rel="stylesheet" href="{% static 'book_app/css/style.css'%}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <h2> Автор </h2>
+    <h4>Имя - {{author.name}}</h4>
+    <h4>Фамилия - {{author.surname}}</h4>
+    <h4>Email - {{author.email}}</h4>
+    <hr>
+    <h2> Книги написанные автором </h2>
+    <ol>
+        {% for i in author.book_set.all %}
+            <li>{{i}}</li>
+        {% endfor %}
+    </ol>
+</main>
+{% endblock %}

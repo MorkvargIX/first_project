@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Одна книга {% endblock %}
+
+{% block content %}
+    <h2>Одна книга</h2>
+    <p>Название книги {{book.title}}</p>
+    <p>Рейтинг {{book.rating}}</p>
+    <p>Бюджет {{book.budget}}</p>
+    <p>Год {{book.year}}</p>
+<hr>
+    <h2>Информация о режисёре</h2>
+    <p>Имя {{book.director.name}}</p>
+    <p>Фамилия {{book.director.surname}}</p>
+    <p>Почта {{book.director.email}}</p>
+<hr>
+    <h2>Персонажи книги</h2>
+    <ol>
+        {% for char in book.actors.all %}
+        <li> {{char}} </li>
+        <hr>
+        {% endfor %}
+    </ol>
+{% endblock %}

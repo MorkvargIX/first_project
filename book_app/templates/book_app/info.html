@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Автор {% endblock %}
+{% block css_addition %}
+<link rel="stylesheet" href="{% static 'book_app/css/style.css'%}">
+{% endblock %}
+
+{% block content %}
+<main>
+    <h2> Актёр </h2>
+    <h4>Имя - {{character.name}}</h4>
+    <h4>Фамилия - {{character.surname}}</h4>
+    <h4>Пол - {{character.gender}}</h4>
+</main>
+{% endblock %}
