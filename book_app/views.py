@@ -55,7 +55,8 @@ def feedback(request):
         if form.is_valid():
             print(form.cleaned_data)
             return HttpResponseRedirect('/done')
-    form = FeedBackForm()
+    else:
+        form = FeedBackForm()
     return render(request, 'book_app/contacts.html', context={
         'form': form
     })

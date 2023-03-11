@@ -13,3 +13,33 @@ li{
     display: inline-block;
     margin-left: 150px;
 }
+
+.form_fields{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form_btn:hover{
+    transition: 0.4s;
+    transform: scale(1.2);
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+
+.form_btn{
+    border-radius: 3px;
+    margin-top: 12px;
+    margin-left: 80px;
+    background-color: aquamarine;
+    border: none;
+    width: 100px;
+    height: 20px;
+}
+
+.errorlist{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #ff2650;
+}

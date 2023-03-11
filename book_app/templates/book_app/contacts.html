@@ -10,8 +10,14 @@
     <form action="" method="post">
         <h2> Контактная информация </h2>
         {% csrf_token %}
-        {{form}}
-        <button type="submit">Отправить</button>
+        {% for field in form %}
+        <div class="form_fields">
+            {{field.label_tag}}
+            {{field.errors}}
+            {{field}}
+        </div>
+        {% endfor %}
+        <button type="submit" class="form_btn">Отправить</button>
     </form>
 </main>
 {% endblock %}
