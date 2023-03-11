@@ -1,7 +1,8 @@
+from django.http import HttpResponseRedirect
+from django.db.models import Max, Min, Count
 from django.shortcuts import render, get_object_or_404
 from .models import Book, Author, Character
-from django.db.models import F, Sum, Max, Min, Avg, Count
-from django.urls import reverse
+from .forms import FeedBackForm
 
 
 # Create your views here.
@@ -46,3 +47,19 @@ def info(request, character_id: id):
         'character': character,
         'character_id': character_id
     })
+
+
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return HttpResponseRedirect('/done')
+    form = FeedBackForm()
+    return render(request, 'book_app/contacts.html', context={
+        'form': form
+    })
+
+
+def done(request):
+    return render(request, 'book_app/done_form.html')
