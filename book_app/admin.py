@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Book, Author, Character
+from .models import Book, Author, Character, FeedBack
 from django.db.models import QuerySet
 
 
@@ -23,6 +23,11 @@ class RatingFilter(admin.SimpleListFilter):
             return queryset.filter(rating__gte=40).filter(rating__lte=60)
         if self.value() == '60<':
             return queryset.filter(rating__gt=60)
+
+
+@admin.register(FeedBack)
+class FeedBackAdmin(admin.ModelAdmin):
+    list_display = ['name', 'surname', 'rating']
 
 
 @admin.register(Character)

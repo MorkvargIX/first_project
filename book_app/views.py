@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.db.models import Max, Min, Count
 from django.shortcuts import render, get_object_or_404
-from .models import Book, Author, Character
+from .models import Book, Author, Character, FeedBack
 from .forms import FeedBackForm
 
 
@@ -54,6 +54,13 @@ def feedback(request):
         form = FeedBackForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
+            feed = FeedBack(
+                name=form.cleaned_data['name'],
+                surname=form.cleaned_data['surname'],
+                feedback=form.cleaned_data['feedback'],
+                rating=form.cleaned_data['rating'],
+            )
+            feed.save()
             return HttpResponseRedirect('/done')
     else:
         form = FeedBackForm()

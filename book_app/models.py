@@ -4,6 +4,13 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 # Create your models here
+class FeedBack(models.Model):
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+    feedback = models.TextField(max_length=150)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+
+
 class Author(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
